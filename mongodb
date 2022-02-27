@@ -1,0 +1,15 @@
+Mongo:
+user: admin
+password: next123456
+connection: mongodb+srv://admin:next123456@ecommerce-next.ofuod.mongodb.net/ecommerce?retryWrites=true&w=majority
+
+AMAZON
+//Nuevo: Ultimo
+name-bucket s3: ecommerce-next
+Bucket: S3BucketAccess
+
+politica: S3BucketAccessPolitica
+user-name: strapi-ecommerce-next
+ID clave acceso: AKIAQ2DFCT753BDSF2GG
+Clave de acceso secreta: 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
+
