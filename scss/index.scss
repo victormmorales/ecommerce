@@ -2,11 +2,16 @@
 //Layouts
 @import "../layouts/BasicLayout/BasicLayout.scss";
 
+//Pages
+@import "../pages/404.scss";
+@import "../pages/account.scss";
+
 //Components
 @import "../components/Header/Header.scss";
 @import "../components/Header/TopBar/TopBar.scss";
 @import "../components/Header/Menu/Menu.scss";
 @import "../components/Auth/LoginForm/LoginForm.scss";
+@import "../components/Account/ChangeNameForm/ChangeNameForm.scss";
 
 //Modal
 @import "../components/Modal/BasicModal/BasicModal.scss";
