@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
+import { Icon } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import BasicLayout from "../layouts/BasicLayout";
 import { getMeApi } from "../api/user";
 import useAuth from "../hooks/useAuth";
+import ChangeNameForm from "../components/Account/ChangeNameForm";
+import ChangeEmailForm from "../components/Account/ChangeEmailForm";
+import ChangePasswordForm from "../components/Account/ChangePasswordForm";
 
 export default function Account() {
   const [user, setUser] = useState(undefined);
-  const { auth, logout } = useAuth();
+  const { auth, logout, setReloadUser } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -24,16 +28,47 @@ export default function Account() {
 
   return (
     <BasicLayout className="account">
-      <Configuration />
+      <Configuration
+        user={user}
+        logout={logout}
+        setReloadUser={setReloadUser}
+      />
+      <Addresses />
     </BasicLayout>
   );
 }
 
-function Configuration() {
+function Configuration({ user, logout, setReloadUser }) {
   return (
     <div className="account__configuration">
       <div className="title">Configuración</div>
-      <div className="data">formulario config</div>
+      <div className="data">
+        <ChangeNameForm
+          user={user}
+          logout={logout}
+          setReloadUser={setReloadUser}
+        />
+        <ChangeEmailForm
+          user={user}
+          logout={logout}
+          setReloadUser={setReloadUser}
+        />
+        <ChangePasswordForm user={user} logout={logout} />
+      </div>
+    </div>
+  );
+}
+
+function Addresses() {
+  return (
+    <div className="account__addresses">
+      <div className="title">
+        Direcciones
+        <Icon name="plus" link />
+      </div>
+      <div className="data">
+        <p>Lista direcciones</p>
+      </div>
     </div>
   );
 }

@@ -1,9 +1,17 @@
-.change-name-form {
+.change-email-form {
   padding: 20px 15px;
 
   > h4 {
     color: $primary;
     font-size: 22px;
+  }
+  > p {
+    color: $font-grey;
+
+    font-size: 12px;
+    span {
+      font-weight: bold;
+    }
   }
 
   > form {
