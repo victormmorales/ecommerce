@@ -72,7 +72,40 @@ function MenuOptions({ onShowModal, user, logout }) {
   return (
     <Menu>
       {user ? (
-        <Menu.Item onClick={logout}>Cerrar sesión</Menu.Item>
+        <>
+          <Link href="/orders">
+            <Menu.Item as="a">
+              <Icon name="game" />
+              Mis pedidos
+            </Menu.Item>
+          </Link>
+
+          <Link href="/wishlist">
+            <Menu.Item as="a">
+              <Icon name="heart outline" />
+              Mis favoritos
+            </Menu.Item>
+          </Link>
+
+          <Link href="/account">
+            <Menu.Item as="a">
+              <Icon name="user outline" />
+              {user.name}
+            </Menu.Item>
+          </Link>
+
+          {/* Carrito de la compra */}
+          <Link href="/cart">
+            <Menu.Item as="a" className="m-0">
+              <Icon name="cart" />
+            </Menu.Item>
+          </Link>
+
+          {/* Cerrar sesión */}
+          <Menu.Item onClick={logout} className="m-0">
+            <Icon name="power off" />
+          </Menu.Item>
+        </>
       ) : (
         <Menu.Item onClick={onShowModal}>
           <Icon name="user outline" />
