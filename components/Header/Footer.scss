@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  height: 80px;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  left: 0;
+  p {
+    margin-bottom: 0px;
+    color: $primary;
+    margin-right: 10px;
+  }
+}

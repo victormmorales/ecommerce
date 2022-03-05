@@ -1,5 +1,5 @@
 .page_404 {
-  padding: 3rem 10rem;
+  padding: 0 10rem;
   background: #fff;
 
   img {
@@ -24,19 +24,19 @@
     align-items: center;
 
     h3 {
-      font-size: 50px;
+      font-size: 40px;
       color: $primary;
     }
 
     h4 {
-      font-size: 25px;
+      font-size: 20px;
     }
 
     a {
       color: #fff;
       padding: 12px 60px;
       background: $primary;
-      margin-top: 30px;
+      margin-top: 10px;
       display: inline-block;
       border-radius: 10px;
     }

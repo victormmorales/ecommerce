@@ -3,6 +3,7 @@
 @import "../layouts/BasicLayout/BasicLayout.scss";
 
 //Pages
+@import "../pages/index.scss";
 @import "../pages/404.scss";
 @import "../pages/account.scss";
 
@@ -10,6 +11,7 @@
 @import "../components/Header/Header.scss";
 @import "../components/Header/TopBar/TopBar.scss";
 @import "../components/Header/Menu/Menu.scss";
+@import "../components/Header/Footer.scss";
 @import "../components/Auth/LoginForm/LoginForm.scss";
 @import "../components/Account/ChangeNameForm/ChangeNameForm.scss";
 @import "../components/Account/ChangeEmailForm/ChangeEmailForm.scss";
