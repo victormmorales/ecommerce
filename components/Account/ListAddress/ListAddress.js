@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Grid, Button } from "semantic-ui-react";
+import { Grid, Button, Loader } from "semantic-ui-react";
 import { map, size } from "lodash";
 import { getAddressesApi, deleteAddressApi } from "../../../api/address";
 import useAuth from "../../../hooks/useAuth";
@@ -25,6 +25,8 @@ export default function ListAddress({
 
   return (
     <div className="list-address">
+      {!addresses && <Loader active>Cargando direcciones</Loader>}
+
       {size(addresses) === 0 ? (
         <h3>No hay ninguna dirección creada</h3>
       ) : (

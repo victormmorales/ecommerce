@@ -20,6 +20,12 @@ export default function Home() {
     <div className="home">
       <BasicLayout>
         {!games && <Loader active>Cargando juegos</Loader>}
+        {games && size(games) === 0 && (
+          <div>
+            <h3>No hay juegos</h3>
+          </div>
+        )}
+        {size(games) > 0 && <h3>Lista de juegos</h3>}
       </BasicLayout>
     </div>
   );
