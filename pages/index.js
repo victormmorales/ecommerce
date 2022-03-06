@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Loader } from "semantic-ui-react";
-import { size, map } from "lodash";
+import { map, size } from "lodash";
 import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 import { getLastGamesApi } from "../api/game";
+import ListGames from "../components/ListGames/ListGames";
 
 export default function Home() {
   const [games, setGames] = useState(null);
-  console.log(games);
 
   useEffect(() => {
     (async () => {
@@ -25,7 +25,7 @@ export default function Home() {
             <h3>No hay juegos</h3>
           </div>
         )}
-        {size(games) > 0 && <h3>Lista de juegos</h3>}
+        {size(games) > 0 && <ListGames games={games} />}
       </BasicLayout>
     </div>
   );

@@ -21,7 +21,7 @@ export default function ListAddress({
   }, [reloadAddresses]);
 
   //TODO: spinner loading
-  if (!addresses) return null;
+  // if (!addresses) return null;
 
   return (
     <div className="list-address">
