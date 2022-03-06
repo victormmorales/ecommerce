@@ -35,16 +35,18 @@
         height: 50px;
 
         .discount {
-          background-color: $primary;
+          background-color: $success;
           color: $font-light;
           font-size: 13px;
           padding: 1px 6px;
         }
 
         .price {
+          background-color: $primary;
           color: $font-light;
           padding: 0px 5px 3px 0;
           font-size: 18px;
+          padding: 1px 6px;
         }
       }
     }
