@@ -8,7 +8,7 @@ const Footer = () => {
       <p>
         Designed by <span>Víctor Ruiz &copy;</span>{" "}
       </p>
-      <Link href="https://www.linkedin.com/in/victormmorales/">
+      <Link href="https://victorruiz.netlify.app/">
         <a>
           <Image src="/logo-vr.png" alt="logo-vr" width={30} height={30} />
         </a>
