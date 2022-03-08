@@ -30,8 +30,8 @@ export default function ListGames(props) {
     <div className="list-games">
       <Grid>
         <Grid.Row columns={getColumnsRender()}>
-          {map(games, (game) => (
-            <Game game={game} />
+          {map(games, (game, i) => (
+            <Game key={i} game={game} />
           ))}
         </Grid.Row>
       </Grid>
@@ -39,9 +39,7 @@ export default function ListGames(props) {
   );
 }
 
-function Game(props) {
-  const { game } = props;
-
+function Game({ game }) {
   return (
     <Grid.Column className="list-games__game">
       <Link href={`/${game.url}`}>
