@@ -73,10 +73,10 @@ function Info({ game }) {
       />
       <div className="header-game__buy">
         <div className="header-game__buy-price">
-          {discount && <p>Precio de venta al publico: {price}€</p>}
+          {discount ? <p>Precio de venta al publico: {price}€</p> : ""}
 
           <div className="header-game__buy-price-actions">
-            {discount && <p>-{discount}%</p>}
+            {discount ? <p>-{discount}%</p> : ""}
 
             <p>{(price - Math.floor(price * discount) / 100).toFixed(2)}€</p>
           </div>
