@@ -43,7 +43,11 @@ export default function Platform() {
   return (
     <BasicLayout className="platform">
       {!games && <Loader active>Cargando juegos</Loader>}
-      {games && size(games) === 0 && <div>No hay juegos</div>}
+      {games && size(games) === 0 && (
+        <div>
+          <h3>No hay juegos</h3>
+        </div>
+      )}
       {size(games) > 0 && <ListGames games={games} />}
       {totalGames ? (
         <Pagination

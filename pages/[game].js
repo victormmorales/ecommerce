@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { Loader } from "semantic-ui-react";
 import BasicLayout from "../layouts/BasicLayout";
 import { getGameByUrlApi } from "../api/game";
 import HeaderGame from "../components/Game/HeaderGame";
@@ -17,7 +16,7 @@ export default function Game() {
     })();
   }, [query]);
 
-  if (!game) return <Loader active>Cargando juego</Loader>;
+  if (!game) return null;
 
   return (
     <BasicLayout className="game">

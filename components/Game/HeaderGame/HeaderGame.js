@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
 import { Grid, Image, Icon, Button } from "semantic-ui-react";
 import { size } from "lodash";
+import classNames from "classnames";
+import {
+  isFavoriteApi,
+  addFavoriteApi,
+  deleteFavoriteApi,
+} from "../../../api/favorite";
+import useAuth from "../../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 export default function HeaderGame({ game }) {
-  console.log(game.poster);
   const { poster, title } = game;
   return (
     <Grid className="header-game">
@@ -19,12 +26,45 @@ export default function HeaderGame({ game }) {
 
 function Info({ game }) {
   const { title, sumary, price, discount } = game;
-  console.log(game);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const { auth, logout } = useAuth();
+  const [reloadFavorite, setReloadFavorite] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const response = await isFavoriteApi(auth.idUser, game.id, logout);
+      if (size(response) > 0) setIsFavorite(true);
+      else setIsFavorite(false);
+    })();
+    setReloadFavorite(false);
+  }, [game, reloadFavorite]);
+
+  const addFavorite = async () => {
+    if (auth) {
+      await addFavoriteApi(auth.idUser, game.id, logout);
+      setReloadFavorite(true);
+      toast.success("Añadido a FAVS 🧡");
+    }
+  };
+
+  const deleteFavorite = async () => {
+    if (auth) {
+      await deleteFavoriteApi(auth.idUser, game.id, logout);
+      setReloadFavorite(true);
+      toast.warning("Eliminado de FAVS 🤬");
+    }
+  };
 
   return (
     <>
       <div className="header-game__title">
-        {title} <Icon name="heart outline" link />
+        {title}
+        <Icon
+          name={isFavorite ? "heart" : "heart outline"}
+          className={classNames({ like: isFavorite })}
+          link
+          onClick={isFavorite ? deleteFavorite : addFavorite}
+        />
       </div>
       <div className="header-game__delivery">Entrega en 24/48h</div>
       <div
