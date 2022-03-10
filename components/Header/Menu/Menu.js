@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Menu, Grid, Icon } from "semantic-ui-react";
+import { Container, Menu, Grid, Icon, Label } from "semantic-ui-react";
 import Link from "next/link";
 import { map } from "lodash";
 import BasicModal from "../../Modal/BasicModal/BasicModal";
@@ -7,6 +7,7 @@ import Auth from "../../Auth/Auth";
 import useAuth from "../../../hooks/useAuth";
 import { getMeApi } from "../../../api/user";
 import { getPlatFormsApi } from "../../../api/platform";
+import useCart from "../../../hooks/useCart";
 
 export default function MenuWeb() {
   const [platforms, setPlatforms] = useState([]);
@@ -77,6 +78,8 @@ function MenuPlatforms({ platforms }) {
 }
 
 function MenuOptions({ onShowModal, user, logout }) {
+  const { productsCart } = useCart();
+
   return (
     <Menu>
       {user ? (
@@ -106,6 +109,9 @@ function MenuOptions({ onShowModal, user, logout }) {
           <Link href="/cart">
             <Menu.Item as="a" className="m-0">
               <Icon name="cart" />
+              <Label color="red" floating circular>
+                {productsCart}
+              </Label>
             </Menu.Item>
           </Link>
 

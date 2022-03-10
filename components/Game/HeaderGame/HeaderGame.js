@@ -8,6 +8,7 @@ import {
   deleteFavoriteApi,
 } from "../../../api/favorite";
 import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
 import { toast } from "react-toastify";
 
 export default function HeaderGame({ game }) {
@@ -25,10 +26,11 @@ export default function HeaderGame({ game }) {
 }
 
 function Info({ game }) {
-  const { title, sumary, price, discount } = game;
+  const { title, sumary, price, discount, url } = game;
   const [isFavorite, setIsFavorite] = useState(false);
-  const { auth, logout } = useAuth();
   const [reloadFavorite, setReloadFavorite] = useState(false);
+  const { auth, logout } = useAuth();
+  const { addProductCart } = useCart();
 
   useEffect(() => {
     (async () => {
@@ -81,7 +83,12 @@ function Info({ game }) {
             <p>{(price - Math.floor(price * discount) / 100).toFixed(2)}€</p>
           </div>
         </div>
-        <Button className="header-game__buy-btn">Comprar</Button>
+        <Button
+          className="header-game__buy-btn"
+          onClick={() => addProductCart(url)}
+        >
+          Comprar
+        </Button>
       </div>
     </>
   );
