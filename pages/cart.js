@@ -3,6 +3,7 @@ import BasicLayout from "../layouts/BasicLayout";
 import { getGameByUrlApi } from "../api/game";
 import useCart from "../hooks/useCart";
 import SummaryCart from "../components/Cart/SummaryCart";
+import AddressShipping from "../components/Cart/AddressShipping/AddressShipping";
 
 export default function Cart() {
   const { getProductCart } = useCart();
@@ -22,6 +23,7 @@ function EmptyCart() {
 function FullCart({ products }) {
   const [productsData, setProductsData] = useState(null);
   const [reloadCart, setReloadCart] = useState(false);
+  const [address, setAddress] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -42,6 +44,7 @@ function FullCart({ products }) {
         reloadCart={reloadCart}
         setReloadCart={setReloadCart}
       />
+      <AddressShipping setAddress={setAddress} />
     </BasicLayout>
   );
 }
