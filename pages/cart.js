@@ -45,8 +45,8 @@ function FullCart({ products }) {
         reloadCart={reloadCart}
         setReloadCart={setReloadCart}
       />
-      <AddressShipping setAddress={setAddress} />
       {address && <Payment products={productsData} address={address} />}
+      <AddressShipping setAddress={setAddress} />
     </BasicLayout>
   );
 }
