@@ -5,6 +5,7 @@ import useCart from "../hooks/useCart";
 import SummaryCart from "../components/Cart/SummaryCart";
 import AddressShipping from "../components/Cart/AddressShipping/AddressShipping";
 import Payment from "../components/Cart/Payment/Payment";
+import Seo from "../components/Seo";
 
 export default function Cart() {
   const { getProductCart } = useCart();
@@ -16,6 +17,7 @@ export default function Cart() {
 function EmptyCart() {
   return (
     <BasicLayout className="empty-cart">
+      <Seo title="Carrito 🛒" />
       <h2>No hay productos en el carrito</h2>
     </BasicLayout>
   );
@@ -40,6 +42,7 @@ function FullCart({ products }) {
 
   return (
     <BasicLayout className="empty-cart">
+      <Seo title="Carrito 🛒" />
       <SummaryCart
         products={productsData}
         reloadCart={reloadCart}

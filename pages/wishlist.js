@@ -5,6 +5,7 @@ import { getFavoriteApi } from "../api/favorite";
 import useAuth from "../hooks/useAuth";
 import BasicLayout from "../layouts/BasicLayout";
 import ListGames from "../components/ListGames";
+import Seo from "../components/Seo";
 
 export default function Wishlist() {
   const [games, setGames] = useState(null);
@@ -27,6 +28,7 @@ export default function Wishlist() {
 
   return (
     <BasicLayout className="wishlist">
+      <Seo title="Favoritos 🧡" />
       <div className="wishlist__block">
         <div className="title">Juegos favoritos 🧡</div>
         <div className="data">

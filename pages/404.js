@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { Container } from "semantic-ui-react";
+import Seo from "../components/Seo";
 import BasicLayout from "../layouts/BasicLayout/BasicLayout";
 
 export default function NotFound() {
   return (
     <BasicLayout>
+      <Seo title="Pareces un poco perdido 🙄" />
       <section className="page_404">
         <Container>
           <div className="four_zero_four_bg">

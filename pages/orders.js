@@ -5,6 +5,7 @@ import BasicLayout from "../layouts/BasicLayout";
 import { getOrdersApi } from "../api/order";
 import useAuth from "../hooks/useAuth";
 import Order from "../components/Orders/Order";
+import Seo from "../components/Seo";
 
 export default function Orders() {
   const [orders, setOrders] = useState(null);
@@ -38,9 +39,10 @@ export default function Orders() {
 function OrderList({ orders }) {
   return (
     <Grid>
+      <Seo title="Mis pedidos" description="Listado de todos tus pedidos" />
       {map(orders, (order) => (
-        <Grid.Column mobile={16} tablet={6} computer={8}>
-          <Order />
+        <Grid.Column key={order._id} mobile={16} tablet={6} computer={8}>
+          <Order order={order} />
         </Grid.Column>
       ))}
     </Grid>
